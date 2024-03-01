@@ -1,0 +1,11 @@
+<!-- pdfscanner/templates/pdfscanner/download_folder.html -->
+<h2>Download Folder</h2>
+<p>PDF Document: {{ pdf_document.pdf_file.name }}</p>
+<a href="{% url 'download_folder' pdf_document_id=pdf_document.id %}">Download</a>
+{% for barcode in barcode_data %}
+    <div>
+        <p>Barcode Value: {{ barcode.barcode_value }}</p>
+        <img src="{{ barcode.page_image.url }}" alt="Page Image">
+    </div>
+
+{% endfor %}
